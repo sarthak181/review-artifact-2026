@@ -1,0 +1,12 @@
+# Lightweight stack to VERIFY the released claims -- no GPU, no model weights.
+#
+#   python tests/test_metrics.py        # standard library only
+#   python tests/test_graded_eval.py    # standard library only
+#   python analyze_release.py           # standard library only; rewrites analysis_summary.json
+#   python paper/make_figures.py        # additionally needs matplotlib (+ numpy)
+#
+# The full inference stack (PyTorch, Transformers, bitsandbytes, qwen-vl-utils)
+# in requirements.txt is required ONLY to regenerate raw model outputs, not to
+# reproduce the paper's tables and figures from the shipped JSONL.
+matplotlib>=3.8
+numpy>=1.26

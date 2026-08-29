@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+tmp/
+
+# Manuscript files are kept locally but excluded from the anonymous release.
+paper/*.tex
+paper/*.bib
+paper/*.sty
+paper/main.pdf
+output/pdf/
+RELEASE_MANIFEST.md
+dataset/coco/
+dataset/vqa2/
+dataset/**/images/
+*.safetensors
+*.bin
+client_secret.json
+token.json
+
+# Local maintainer notes - never part of the release
+*.local.md

@@ -1,0 +1,11 @@
+# PyTorch is installed separately from the cu128 index (Blackwell / RTX 50-series):
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
+transformers>=4.49.0
+accelerate>=1.0.0
+bitsandbytes>=0.45.0
+qwen-vl-utils>=0.0.8
+pillow>=10.0
+huggingface_hub>=0.28
+matplotlib>=3.8
+numpy>=1.26
+requests>=2.31
