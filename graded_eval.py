@@ -137,6 +137,49 @@ def bootstrap_threshold(
     return _quantile(draws, 0.025), _quantile(draws, 0.975)
 
 
+def logistic_threshold50(idx, items, quant: str, coverage: dict) -> float | None:
+    """Sensitivity estimator: 50% point of an item-level logistic fit.
+
+    Every (item, level) response is regressed on its own measured object
+    coverage, so the estimate does not depend on linear interpolation between
+    level medians.  Returns None when the fit is degenerate.
+    """
+    xs: list[float] = []
+    ys: list[float] = []
+    for item in items:
+        for level in LEVELS:
+            key = (item, quant, condition_for(level))
+            if key not in idx:
+                continue
+            if level and not (item in coverage and str(level) in coverage[item]["levels"]):
+                continue
+            xs.append(0.0 if level == 0 else float(coverage[item]["levels"][str(level)]))
+            ys.append(1.0 if idx[key].outcome in GROUNDED else 0.0)
+    if not xs or len(set(ys)) < 2:
+        return None
+    b0 = b1 = 0.0
+    for _ in range(100):  # Newton-Raphson on the logistic log-likelihood
+        g0 = g1 = h00 = h01 = h11 = 0.0
+        for x, y in zip(xs, ys):
+            p = 1.0 / (1.0 + math.exp(-(b0 + b1 * x)))
+            w = p * (1.0 - p)
+            g0 += y - p
+            g1 += (y - p) * x
+            h00 += w
+            h01 += w * x
+            h11 += w * x * x
+        det = h00 * h11 - h01 * h01
+        if det <= 1e-12:
+            return None
+        d0 = (h11 * g0 - h01 * g1) / det
+        d1 = (h00 * g1 - h01 * g0) / det
+        b0 += d0
+        b1 += d1
+        if abs(d0) + abs(d1) < 1e-10:
+            break
+    return -b0 / b1 if b1 > 0 else None
+
+
 def full_removal_metrics(idx, items, quant: str) -> dict[str, float]:
     target = [idx[(i, quant, "target_100")] for i in items]
     control = [idx[(i, quant, "control")] for i in items]

@@ -1056,5 +1056,618 @@
       }
     },
     "caveat": "The binary control preserves the answer object and is matched only approximately in painted area. The graded partial-removal conditions have no dose-matched controls."
+  },
+  "robustness": {
+    "precision_matched_models": {
+      "int8": {
+        "common_support": 135,
+        "systems": {
+          "Qwen2.5-VL-3B (int8)": {
+            "n": 135,
+            "original_accuracy_all": 0.5433333333333333,
+            "threshold50": 0.8105399999999999,
+            "threshold50_ci95": [
+              0.7221645454545456,
+              0.8607511693548388
+            ],
+            "curve": [
+              {
+                "level": 0,
+                "coverage": 0.0,
+                "grounded_rate": 0.0,
+                "n": 135
+              },
+              {
+                "level": 11,
+                "coverage": 0.2046,
+                "grounded_rate": 0.11851851851851852,
+                "n": 135
+              },
+              {
+                "level": 23,
+                "coverage": 0.4041,
+                "grounded_rate": 0.17777777777777778,
+                "n": 135
+              },
+              {
+                "level": 37,
+                "coverage": 0.6106,
+                "grounded_rate": 0.3333333333333333,
+                "n": 135
+              },
+              {
+                "level": 54,
+                "coverage": 0.8028,
+                "grounded_rate": 0.4888888888888889,
+                "n": 135
+              },
+              {
+                "level": 73,
+                "coverage": 0.9576,
+                "grounded_rate": 0.7111111111111111,
+                "n": 135
+              },
+              {
+                "level": 100,
+                "coverage": 1.0,
+                "grounded_rate": 0.8148148148148148,
+                "n": 135
+              }
+            ],
+            "full_removal": {
+              "grounded_target": 0.8148148148148148,
+              "grounded_control": 0.21481481481481482,
+              "gai": 0.6,
+              "reference_leakage": 0.0962962962962963,
+              "control_accuracy": 0.7407407407407407,
+              "gai_ci95": [
+                0.5111111111111111,
+                0.6888888888888889
+              ]
+            }
+          },
+          "Gemma-3-4B (int8)": {
+            "n": 135,
+            "original_accuracy_all": 0.68,
+            "threshold50": null,
+            "threshold50_ci95": [
+              null,
+              null
+            ],
+            "curve": [
+              {
+                "level": 0,
+                "coverage": 0.0,
+                "grounded_rate": 0.0,
+                "n": 135
+              },
+              {
+                "level": 11,
+                "coverage": 0.2046,
+                "grounded_rate": 0.0,
+                "n": 135
+              },
+              {
+                "level": 23,
+                "coverage": 0.4041,
+                "grounded_rate": 0.0,
+                "n": 135
+              },
+              {
+                "level": 37,
+                "coverage": 0.6106,
+                "grounded_rate": 0.037037037037037035,
+                "n": 135
+              },
+              {
+                "level": 54,
+                "coverage": 0.8028,
+                "grounded_rate": 0.05925925925925926,
+                "n": 135
+              },
+              {
+                "level": 73,
+                "coverage": 0.9576,
+                "grounded_rate": 0.2,
+                "n": 135
+              },
+              {
+                "level": 100,
+                "coverage": 1.0,
+                "grounded_rate": 0.31851851851851853,
+                "n": 135
+              }
+            ],
+            "full_removal": {
+              "grounded_target": 0.31851851851851853,
+              "grounded_control": 0.037037037037037035,
+              "gai": 0.2814814814814815,
+              "reference_leakage": 0.17777777777777778,
+              "control_accuracy": 0.8518518518518519,
+              "gai_ci95": [
+                0.19999999999999998,
+                0.37037037037037035
+              ]
+            }
+          }
+        },
+        "gai_Gemma-3-4B (int8)_minus_qwen3b": {
+          "estimate": -0.3185185185185185,
+          "ci95": [
+            -0.4296296296296296,
+            -0.21481481481481474
+          ],
+          "defined_bootstrap_draws": 4000
+        }
+      },
+      "int4": {
+        "common_support": 158,
+        "systems": {
+          "Qwen2.5-VL-3B (int4)": {
+            "n": 158,
+            "original_accuracy_all": 0.6033333333333334,
+            "threshold50": 0.7951557692307692,
+            "threshold50_ci95": [
+              0.7133638961769116,
+              0.8711147044334976
+            ],
+            "curve": [
+              {
+                "level": 0,
+                "coverage": 0.0,
+                "grounded_rate": 0.0,
+                "n": 158
+              },
+              {
+                "level": 11,
+                "coverage": 0.20205,
+                "grounded_rate": 0.17088607594936708,
+                "n": 158
+              },
+              {
+                "level": 23,
+                "coverage": 0.39964999999999995,
+                "grounded_rate": 0.21518987341772153,
+                "n": 158
+              },
+              {
+                "level": 37,
+                "coverage": 0.6003000000000001,
+                "grounded_rate": 0.34177215189873417,
+                "n": 158
+              },
+              {
+                "level": 54,
+                "coverage": 0.80295,
+                "grounded_rate": 0.5063291139240507,
+                "n": 158
+              },
+              {
+                "level": 73,
+                "coverage": 0.9581,
+                "grounded_rate": 0.6455696202531646,
+                "n": 158
+              },
+              {
+                "level": 100,
+                "coverage": 1.0,
+                "grounded_rate": 0.7468354430379747,
+                "n": 158
+              }
+            ],
+            "full_removal": {
+              "grounded_target": 0.7468354430379747,
+              "grounded_control": 0.189873417721519,
+              "gai": 0.5569620253164557,
+              "reference_leakage": 0.0949367088607595,
+              "control_accuracy": 0.759493670886076,
+              "gai_ci95": [
+                0.4556962025316456,
+                0.6518987341772151
+              ]
+            }
+          },
+          "Qwen2.5-VL-7B (int4)": {
+            "n": 158,
+            "original_accuracy_all": 0.69,
+            "threshold50": 0.7536567567567568,
+            "threshold50_ci95": [
+              0.698115955882353,
+              0.8166949642857143
+            ],
+            "curve": [
+              {
+                "level": 0,
+                "coverage": 0.0,
+                "grounded_rate": 0.0,
+                "n": 158
+              },
+              {
+                "level": 11,
+                "coverage": 0.20205,
+                "grounded_rate": 0.056962025316455694,
+                "n": 158
+              },
+              {
+                "level": 23,
+                "coverage": 0.39964999999999995,
+                "grounded_rate": 0.17088607594936708,
+                "n": 158
+              },
+              {
+                "level": 37,
+                "coverage": 0.6003000000000001,
+                "grounded_rate": 0.3227848101265823,
+                "n": 158
+              },
+              {
+                "level": 54,
+                "coverage": 0.80295,
+                "grounded_rate": 0.5569620253164557,
+                "n": 158
+              },
+              {
+                "level": 73,
+                "coverage": 0.9581,
+                "grounded_rate": 0.7658227848101266,
+                "n": 158
+              },
+              {
+                "level": 100,
+                "coverage": 1.0,
+                "grounded_rate": 0.8164556962025317,
+                "n": 158
+              }
+            ],
+            "full_removal": {
+              "grounded_target": 0.8164556962025317,
+              "grounded_control": 0.189873417721519,
+              "gai": 0.6265822784810127,
+              "reference_leakage": 0.0949367088607595,
+              "control_accuracy": 0.7784810126582279,
+              "gai_ci95": [
+                0.5443037974683544,
+                0.7088607594936709
+              ]
+            }
+          }
+        },
+        "gai_Qwen2.5-VL-7B (int4)_minus_qwen3b": {
+          "estimate": 0.069620253164557,
+          "ci95": [
+            -0.006329113924050667,
+            0.14556962025316456
+          ],
+          "defined_bootstrap_draws": 4000
+        }
+      }
+    },
+    "area_matched_control_cross_model": {
+      "support": 130,
+      "matched_dose_counts": {
+        "11": 0,
+        "23": 3,
+        "37": 35,
+        "54": 20,
+        "73": 26,
+        "100": 46
+      },
+      "median_target_over_control_area": 0.7998491662502545,
+      "median_matched_object_coverage": 0.9279,
+      "systems": {
+        "Qwen2.5-VL-3B (bf16)": {
+          "all": {
+            "n": 130,
+            "grounded_target_matched": 0.5461538461538461,
+            "grounded_control": 0.17692307692307693,
+            "difference": {
+              "estimate": 0.36923076923076914,
+              "ci95": [
+                0.2692307692307692,
+                0.46923076923076923
+              ],
+              "defined_bootstrap_draws": 4000
+            }
+          },
+          "partial_doses_only": {
+            "n": 84,
+            "grounded_target_matched": 0.42857142857142855,
+            "grounded_control": 0.14285714285714285,
+            "difference": {
+              "estimate": 0.2857142857142857,
+              "ci95": [
+                0.17857142857142855,
+                0.40476190476190477
+              ],
+              "defined_bootstrap_draws": 4000
+            }
+          }
+        },
+        "Gemma-3-4B (int8)": {
+          "all": {
+            "n": 130,
+            "grounded_target_matched": 0.18461538461538463,
+            "grounded_control": 0.038461538461538464,
+            "difference": {
+              "estimate": 0.14615384615384616,
+              "ci95": [
+                0.06923076923076923,
+                0.22307692307692306
+              ],
+              "defined_bootstrap_draws": 4000
+            }
+          },
+          "partial_doses_only": {
+            "n": 84,
+            "grounded_target_matched": 0.07142857142857142,
+            "grounded_control": 0.023809523809523808,
+            "difference": {
+              "estimate": 0.047619047619047616,
+              "ci95": [
+                -0.011904761904761904,
+                0.11904761904761904
+              ],
+              "defined_bootstrap_draws": 4000
+            }
+          }
+        },
+        "Qwen2.5-VL-7B (int4)": {
+          "all": {
+            "n": 130,
+            "grounded_target_matched": 0.6076923076923076,
+            "grounded_control": 0.16923076923076924,
+            "difference": {
+              "estimate": 0.4384615384615384,
+              "ci95": [
+                0.3461538461538461,
+                0.5307692307692308
+              ],
+              "defined_bootstrap_draws": 4000
+            }
+          },
+          "partial_doses_only": {
+            "n": 84,
+            "grounded_target_matched": 0.4642857142857143,
+            "grounded_control": 0.15476190476190477,
+            "difference": {
+              "estimate": 0.30952380952380953,
+              "ci95": [
+                0.1904761904761905,
+                0.4285714285714286
+              ],
+              "defined_bootstrap_draws": 4000
+            }
+          }
+        }
+      }
+    },
+    "area_matched_control_qwen3b": {
+      "support": 148,
+      "matched_dose_counts": {
+        "11": 0,
+        "23": 3,
+        "37": 32,
+        "54": 24,
+        "73": 32,
+        "100": 57
+      },
+      "median_target_over_control_area": 0.8057493853197553,
+      "median_matched_object_coverage": 0.95885,
+      "systems": {
+        "Qwen2.5-VL-3B (bf16)": {
+          "all": {
+            "n": 148,
+            "grounded_target_matched": 0.527027027027027,
+            "grounded_control": 0.16216216216216217,
+            "difference": {
+              "estimate": 0.3648648648648648,
+              "ci95": [
+                0.2635135135135135,
+                0.4662162162162162
+              ],
+              "defined_bootstrap_draws": 4000
+            }
+          },
+          "partial_doses_only": {
+            "n": 91,
+            "grounded_target_matched": 0.38461538461538464,
+            "grounded_control": 0.14285714285714285,
+            "difference": {
+              "estimate": 0.2417582417582418,
+              "ci95": [
+                0.1208791208791209,
+                0.3626373626373626
+              ],
+              "defined_bootstrap_draws": 4000
+            }
+          }
+        },
+        "Qwen2.5-VL-3B (int8)": {
+          "all": {
+            "n": 148,
+            "grounded_target_matched": 0.6351351351351351,
+            "grounded_control": 0.18243243243243243,
+            "difference": {
+              "estimate": 0.45270270270270263,
+              "ci95": [
+                0.3513513513513513,
+                0.5472972972972974
+              ],
+              "defined_bootstrap_draws": 4000
+            }
+          },
+          "partial_doses_only": {
+            "n": 91,
+            "grounded_target_matched": 0.4945054945054945,
+            "grounded_control": 0.16483516483516483,
+            "difference": {
+              "estimate": 0.3296703296703297,
+              "ci95": [
+                0.19780219780219782,
+                0.4505494505494506
+              ],
+              "defined_bootstrap_draws": 4000
+            }
+          }
+        },
+        "Qwen2.5-VL-3B (int4)": {
+          "all": {
+            "n": 148,
+            "grounded_target_matched": 0.5540540540540541,
+            "grounded_control": 0.16891891891891891,
+            "difference": {
+              "estimate": 0.38513513513513514,
+              "ci95": [
+                0.28378378378378377,
+                0.47972972972972977
+              ],
+              "defined_bootstrap_draws": 4000
+            }
+          },
+          "partial_doses_only": {
+            "n": 91,
+            "grounded_target_matched": 0.3956043956043956,
+            "grounded_control": 0.15384615384615385,
+            "difference": {
+              "estimate": 0.24175824175824173,
+              "ci95": [
+                0.13186813186813184,
+                0.3626373626373626
+              ],
+              "defined_bootstrap_draws": 4000
+            }
+          }
+        }
+      }
+    },
+    "threshold_estimator_sensitivity": {
+      "note": "Item-level logistic regression of grounded response on measured object coverage; the 50% point may extrapolate beyond 1.0 when a curve never reaches 50%.",
+      "cross_model_logistic_threshold50": {
+        "Qwen2.5-VL-3B (bf16)": {
+          "estimate": 0.7754657216631248,
+          "ci95": [
+            0.7163472597430386,
+            0.8349192766285767
+          ],
+          "defined_bootstrap_draws": 4000
+        },
+        "Gemma-3-4B (int8)": {
+          "estimate": 1.105147701498032,
+          "ci95": [
+            1.052153969223423,
+            1.1728555947638852
+          ],
+          "defined_bootstrap_draws": 4000
+        },
+        "Qwen2.5-VL-7B (int4)": {
+          "estimate": 0.7357782755990006,
+          "ci95": [
+            0.6867250309669457,
+            0.7849842089374024
+          ],
+          "defined_bootstrap_draws": 4000
+        }
+      },
+      "qwen3b_logistic_threshold50": {
+        "bf16": {
+          "estimate": 0.8195581887548801,
+          "ci95": [
+            0.7678838387009178,
+            0.8714227967100252
+          ],
+          "defined_bootstrap_draws": 4000
+        },
+        "int8": {
+          "estimate": 0.7673282284318731,
+          "ci95": [
+            0.7175462106981866,
+            0.8177790458024221
+          ],
+          "defined_bootstrap_draws": 4000
+        },
+        "int4": {
+          "estimate": 0.8100414690264697,
+          "ci95": [
+            0.7477688256201681,
+            0.8699743689921972
+          ],
+          "defined_bootstrap_draws": 4000
+        }
+      },
+      "qwen3b_logistic_paired_deltas": {
+        "int8_minus_bf16": {
+          "estimate": -0.052229960323006974,
+          "ci95": [
+            -0.07601780566899632,
+            -0.031546693973624196
+          ],
+          "defined_bootstrap_draws": 4000
+        },
+        "int4_minus_bf16": {
+          "estimate": -0.009516719728410394,
+          "ci95": [
+            -0.04257129688353075,
+            0.023855301130790426
+          ],
+          "defined_bootstrap_draws": 4000
+        }
+      },
+      "qwen3b_fixed_dose_grounded_rate_deltas": {
+        "target_54": {
+          "int8_minus_bf16": {
+            "estimate": 0.02702702702702703,
+            "ci95": [
+              -0.013513513513513487,
+              0.0675675675675676
+            ],
+            "defined_bootstrap_draws": 4000
+          },
+          "int4_minus_bf16": {
+            "estimate": 0.006756756756756743,
+            "ci95": [
+              -0.047297297297297314,
+              0.0608108108108108
+            ],
+            "defined_bootstrap_draws": 4000
+          }
+        },
+        "target_73": {
+          "int8_minus_bf16": {
+            "estimate": 0.027027027027026973,
+            "ci95": [
+              -0.013513513513513487,
+              0.06756756756756765
+            ],
+            "defined_bootstrap_draws": 4000
+          },
+          "int4_minus_bf16": {
+            "estimate": -0.04054054054054057,
+            "ci95": [
+              -0.10135135135135132,
+              0.013513513513513598
+            ],
+            "defined_bootstrap_draws": 4000
+          }
+        },
+        "target_100": {
+          "int8_minus_bf16": {
+            "estimate": 0.08783783783783783,
+            "ci95": [
+              0.04729729729729726,
+              0.1351351351351351
+            ],
+            "defined_bootstrap_draws": 4000
+          },
+          "int4_minus_bf16": {
+            "estimate": 0.020270270270270285,
+            "ci95": [
+              -0.03378378378378377,
+              0.07432432432432434
+            ],
+            "defined_bootstrap_draws": 4000
+          }
+        }
+      }
+    }
   }
 }

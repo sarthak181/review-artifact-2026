@@ -1,6 +1,6 @@
 # How Much Must Disappear? A Dose-Response Probe of Grounded Abstention in VLMs
 
-Anonymous code and data release for the VLM4RWD workshop at NeurIPS 2026. The repository contains the compact benchmark manifests, saved model outputs, scoring and statistics code, figure-generation code, and tests needed to audit the reported results.
+Code and data release for the paper. The repository contains the compact benchmark manifests, saved model outputs, scoring and statistics code, figure-generation code, and tests needed to audit the reported results.
 
 The release intentionally excludes COCO/VQAv2 images and annotations, model weights, authentication tokens, caches, and logs.
 
@@ -24,7 +24,7 @@ python paper/make_figures.py
 
 `requirements-analysis.txt` is the lightweight verification stack: the tests and `analyze_release.py` use only the Python standard library, and figure generation adds only `matplotlib`. The full `requirements.txt` (PyTorch, Transformers, bitsandbytes, qwen-vl-utils) is needed only to regenerate model outputs, not to reproduce the shipped tables and figures.
 
-`analyze_release.py` rewrites `results/analysis_summary.json` from the five shipped JSONL files. All comparisons use an explicitly common original-correct item support. Bootstrap confidence intervals use 4,000 item resamples.
+`analyze_release.py` rewrites `results/analysis_summary.json` from the five shipped JSONL files. All comparisons use an explicitly common original-correct item support. Bootstrap confidence intervals use 4,000 item resamples. The `robustness` key holds the precision-matched model comparisons, the area-matched target/control contrast, and the logistic-threshold sensitivity analysis (the logistic bootstrap makes a full run take several minutes).
 
 `paper/make_figures.py` regenerates the result figures from `results/analysis_summary.json`.
 

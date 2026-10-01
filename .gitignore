@@ -4,7 +4,7 @@ __pycache__/
 .venv/
 tmp/
 
-# Manuscript files are kept locally but excluded from the anonymous release.
+# Manuscript files are kept locally but excluded from the code release.
 paper/*.tex
 paper/*.bib
 paper/*.sty
@@ -21,3 +21,5 @@ token.json
 
 # Local maintainer notes - never part of the release
 *.local.md
+output/
+tasks/

@@ -131,6 +131,34 @@ def test_reference_leakage_tracks_the_reference_match_flag():
     assert abs(G.full_removal_metrics(idx, items, "bf16")["reference_leakage"] - 0.5) < 1e-9
 
 
+def test_logistic_threshold_recovers_known_midpoint():
+    # Per-level grounded fractions follow p(x) = 1 / (1 + exp(-10 (x - 0.7))),
+    # so the logistic MLE must recover the 0.7 midpoint up to rounding.
+    import math
+    levels = {"11": 0.2, "23": 0.4, "37": 0.6, "54": 0.8, "73": 0.95, "100": 1.0}
+    n = 2000
+    idx, coverage, items = {}, {}, [f"i{k}" for k in range(n)]
+    for item in items:
+        coverage[item] = {"levels": dict(levels)}
+        idx[(item, "bf16", "original")] = scored(item, "original", WRONG)
+    for level, x in [("0", 0.0)] + list(levels.items()):
+        grounded = round(n / (1 + math.exp(-10 * (x - 0.7))))
+        cond = "original" if level == "0" else f"target_{level}"
+        for k, item in enumerate(items):
+            idx[(item, "bf16", cond)] = scored(item, cond, ABSTAIN if k < grounded else WRONG)
+    value = G.logistic_threshold50(idx, items, "bf16", coverage)
+    assert value is not None and abs(value - 0.7) < 0.005
+
+
+def test_logistic_threshold_undefined_without_any_grounded_response():
+    idx, items = {}, ["i0", "i1"]
+    coverage = {i: {"levels": {"100": 1.0}} for i in items}
+    for i in items:
+        idx[(i, "bf16", "original")] = scored(i, "original", CORRECT)
+        idx[(i, "bf16", "target_100")] = scored(i, "target_100", WRONG)
+    assert G.logistic_threshold50(idx, items, "bf16", coverage) is None
+
+
 if __name__ == "__main__":
     for name, fn in sorted(globals().items()):
         if name.startswith("test_") and callable(fn):
